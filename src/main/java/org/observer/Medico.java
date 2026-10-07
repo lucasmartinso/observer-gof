@@ -1,5 +1,6 @@
 package org.observer;
 
+import java.util.Observable;
 import java.util.Observer;
 
 public class Medico implements Observer {
@@ -17,6 +18,10 @@ public class Medico implements Observer {
     }
 
     public void participar(Plantao plantao) {
-        plantao.
+        plantao.addObserver(this);
+    }
+
+    public void update(Observable plantao, Object arg) {
+        this.ultimaNotificacao = this.nome + ", vaga disponivel no " + plantao.toString();
     }
 }
